@@ -49,6 +49,13 @@ import java.util.Set;
  */
 public class CDL {
 
+    /**
+     * Default delimiter.
+     * TODO:
+     * Support custom delimiter to be accepted to convert comma delimited
+     * text into a JSONArray, and to convert a JSONArray into comma
+     * delimited text.
+     */
     public static final char DEFAULT_DELIMITER = ',';
 
     /**
