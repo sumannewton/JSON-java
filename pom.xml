@@ -4,9 +4,43 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.json</groupId>
+    <groupId>org.sumannewton.json</groupId>
     <artifactId>json</artifactId>
     <version>1.0</version>
+    <name>json-org</name>
+    <description>Library to convert between JSON and XML, HTTP headers, Cookies, and CDL</description>
+    <url>https://github.com/sumannewton/JSON-java.git</url>
+
+    <developers>
+        <developer>
+            <name>Suman</name>
+            <email>sumannewton@gmail.com</email>
+            <organizationUrl>https://github.com/sumannewton</organizationUrl>
+        </developer>
+    </developers>
+
+    <scm>
+        <connection>scm:git:git@github.com:sumannewton/JSON-java.git</connection>
+        <developerConnection>scm:git:git@github.com:sumannewton/JSON-java.git</developerConnection>
+        <url>git@github.com:sumannewton/JSON-java.git</url>
+    </scm>
+
+    <distributionManagement>
+        <repository>
+            <id>clojars</id>
+            <name>Clojars repository</name>
+            <url>https://clojars.org/repo</url>
+        </repository>
+    </distributionManagement>
+
+    <licenses>
+        <license>
+            <name>The Apache Software License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+            <comments></comments>
+        </license>
+    </licenses>
 
     <dependencies>
         <dependency>
@@ -35,6 +69,7 @@
                 <configuration>
                     <source>1.8</source>
                     <target>1.8</target>
+                    <encoding>UTF-8</encoding>
                 </configuration>
             </plugin>
             <plugin>
