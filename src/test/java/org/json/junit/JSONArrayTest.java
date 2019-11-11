@@ -297,14 +297,14 @@ public class JSONArrayTest {
                 "hello".equals(jsonArray.getString(4)));
         // doubles
         assertTrue("Array double",
-                new Double(23.45e-4).equals(jsonArray.getDouble(5)));
+                Double.valueOf(23.45e-4).equals(jsonArray.getDouble(5)));
         assertTrue("Array string double",
-                new Double(23.45).equals(jsonArray.getDouble(6)));
+                Double.valueOf(23.45).equals(jsonArray.getDouble(6)));
         // ints
         assertTrue("Array value int",
-                new Integer(42).equals(jsonArray.getInt(7)));
+                Integer.valueOf(42).equals(jsonArray.getInt(7)));
         assertTrue("Array value string int",
-                new Integer(43).equals(jsonArray.getInt(8)));
+                Integer.valueOf(43).equals(jsonArray.getInt(8)));
         // nested objects
         JSONArray nestedJsonArray = jsonArray.getJSONArray(9);
         assertTrue("Array value JSONArray", nestedJsonArray != null);
@@ -312,9 +312,9 @@ public class JSONArrayTest {
         assertTrue("Array value JSONObject", nestedJsonObject != null);
         // longs
         assertTrue("Array value long",
-                new Long(0).equals(jsonArray.getLong(11)));
+                Long.valueOf(0).equals(jsonArray.getLong(11)));
         assertTrue("Array value string long",
-                new Long(-1).equals(jsonArray.getLong(12)));
+                Long.valueOf(-1).equals(jsonArray.getLong(12)));
 
         assertTrue("Array value null", jsonArray.isNull(-1));
     }
@@ -459,30 +459,30 @@ public class JSONArrayTest {
                 Boolean.FALSE == jsonArray.optBoolean(-1));
 
         assertTrue("Array opt double",
-                new Double(23.45e-4).equals(jsonArray.optDouble(5)));
+                Double.valueOf(23.45e-4).equals(jsonArray.optDouble(5)));
         assertTrue("Array opt double default",
-                new Double(1).equals(jsonArray.optDouble(0, 1)));
+                Double.valueOf(1).equals(jsonArray.optDouble(0, 1)));
         assertTrue("Array opt double default implicit",
-           new Double(jsonArray.optDouble(99)).isNaN());
+           Double.valueOf(jsonArray.optDouble(99)).isNaN());
 
         assertTrue("Array opt float",
-                new Float(23.45e-4).equals(jsonArray.optFloat(5)));
+                Float.valueOf(23.45e-4f).equals(jsonArray.optFloat(5)));
         assertTrue("Array opt float default",
-                new Float(1).equals(jsonArray.optFloat(0, 1)));
+                Float.valueOf(1).equals(jsonArray.optFloat(0, 1)));
         assertTrue("Array opt float default implicit",
-           new Float(jsonArray.optFloat(99)).isNaN());
+           Float.valueOf(jsonArray.optFloat(99)).isNaN());
 
         assertTrue("Array opt Number",
-                new Double(23.45e-4).equals(jsonArray.optNumber(5)));
+                Double.valueOf(23.45e-4).equals(jsonArray.optNumber(5)));
         assertTrue("Array opt Number default",
-                new Double(1).equals(jsonArray.optNumber(0, 1d)));
+                Double.valueOf(1).equals(jsonArray.optNumber(0, 1d)));
         assertTrue("Array opt Number default implicit",
-           new Double(jsonArray.optNumber(99,Double.NaN).doubleValue()).isNaN());
+           Double.valueOf(jsonArray.optNumber(99,Double.NaN).doubleValue()).isNaN());
 
         assertTrue("Array opt int",
-                new Integer(42).equals(jsonArray.optInt(7)));
+                Integer.valueOf(42).equals(jsonArray.optInt(7)));
         assertTrue("Array opt int default",
-                new Integer(-1).equals(jsonArray.optInt(0, -1)));
+                Integer.valueOf(-1).equals(jsonArray.optInt(0, -1)));
         assertTrue("Array opt int default implicit",
                 0 == jsonArray.optInt(0));
 
@@ -850,14 +850,14 @@ public class JSONArrayTest {
                 "hello".equals(it.next()));
 
         assertTrue("Array double",
-                new Double(23.45e-4).equals(it.next()));
+                Double.valueOf(23.45e-4).equals(it.next()));
         assertTrue("Array string double",
-                new Double(23.45).equals(Double.parseDouble((String)it.next())));
+                Double.valueOf(23.45).equals(Double.parseDouble((String)it.next())));
 
         assertTrue("Array value int",
-                new Integer(42).equals(it.next()));
+                Integer.valueOf(42).equals(it.next()));
         assertTrue("Array value string int",
-                new Integer(43).equals(Integer.parseInt((String)it.next())));
+                Integer.valueOf(43).equals(Integer.parseInt((String)it.next())));
 
         JSONArray nestedJsonArray = (JSONArray)it.next();
         assertTrue("Array value JSONArray", nestedJsonArray != null);
@@ -866,9 +866,9 @@ public class JSONArrayTest {
         assertTrue("Array value JSONObject", nestedJsonObject != null);
 
         assertTrue("Array value long",
-                new Long(0).equals(((Number) it.next()).longValue()));
+                Long.valueOf(0).equals(((Number) it.next()).longValue()));
         assertTrue("Array value string long",
-                new Long(-1).equals(Long.parseLong((String) it.next())));
+                Long.valueOf(-1).equals(Long.parseLong((String) it.next())));
         assertTrue("should be at end of array", !it.hasNext());
     }
     
