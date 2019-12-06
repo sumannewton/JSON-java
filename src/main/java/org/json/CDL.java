@@ -166,6 +166,11 @@ public class CDL {
      * @param ja A JSONArray of strings.
      * @return A string ending in NEWLINE.
      */
+
+    public static String rowToString(JSONArray ja) {
+        return rowToString(ja, DEFAULT_DELIMITER);
+    }
+
     public static String rowToString(JSONArray ja, char delimiter) {
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < ja.length(); i += 1) {
@@ -282,7 +287,10 @@ public class CDL {
 
     private static JSONArray getAllFieldNames(JSONArray ja) {
         Set names = new HashSet();
-        ja.forEach(jo -> names.addAll(((JSONObject) jo).names().toList()));
+        ja.forEach(jo -> {
+            if (!((JSONObject) jo).isEmpty())
+                names.addAll(((JSONObject) jo).names().toList());
+        });
         return new JSONArray(names);
     }
 
